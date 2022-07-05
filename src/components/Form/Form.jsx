@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 export class Form extends Component {
   state = {
     name: '',
-    id: '',
+    id: nanoid(5),
     number: '',
   };
 
@@ -14,7 +14,6 @@ export class Form extends Component {
   handleInputValueChange = e => {
     this.setState({
       [e.target.name]: e.target.value,
-      id: nanoid(5),
     });
   };
 
@@ -26,7 +25,7 @@ export class Form extends Component {
   };
 
   reset = () => {
-    this.setState({ name: '', id: '', number: '' });
+    this.setState({ name: '', id: nanoid(5), number: '' });
   };
 
   render() {
@@ -43,7 +42,7 @@ export class Form extends Component {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <label htmlFor={this.numberId}></label>
+        <label htmlFor={this.numberId}>Phone</label>
         <input
           id={this.numberId}
           value={this.state.number}
