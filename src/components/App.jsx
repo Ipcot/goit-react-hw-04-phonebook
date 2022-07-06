@@ -1,11 +1,17 @@
 import { Component } from 'react';
-import { Form } from './Form';
+import { ContactsForm } from './Form';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
+import { Box } from './Box/Box.styled';
 
 export class App extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
     filter: '',
   };
 
@@ -21,8 +27,10 @@ export class App extends Component {
   };
 
   onFilterChange = e => {
+    const filteredList = e.target.value.trim();
+
     this.setState({
-      filter: e.target.value,
+      filter: filteredList,
     });
   };
 
@@ -38,19 +46,22 @@ export class App extends Component {
     );
 
     return (
-      <>
-        <div>
-          <h1>Phonebook</h1>
-          <Form onFormSubmit={this.onFormSubmit} />
+      <Box px="30%">
+        <Box textAlign="center" colors={p => p.theme.colors.black} as="h1">
+          Phonebook
+        </Box>
+        <ContactsForm onFormSubmit={this.onFormSubmit} />
 
-          <h2>Contacts</h2>
-          <Filter value={this.state.filter} onChange={this.onFilterChange} />
-          <ContactList
-            filteredName={filteredName}
-            onDeleteContact={this.deleteContact}
-          />
-        </div>
-      </>
+        <Box textAlign="center" colors={p => p.theme.colors.black} as="h2">
+          Contacts
+        </Box>
+        <Filter value={this.state.filter} onChange={this.onFilterChange} />
+        <ContactList
+          value={this.state.filter}
+          filteredName={filteredName}
+          onDeleteContact={this.deleteContact}
+        />
+      </Box>
     );
   }
 }
