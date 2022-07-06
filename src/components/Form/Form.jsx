@@ -50,7 +50,7 @@ export class ContactsForm extends Component {
         onSubmit={this.handleSubmit}
         validationSchema={schema}
       >
-        <FormStyled>
+        <FormStyled autocomplete="off">
           <Label htmlFor={this.nameId}>Name</Label>
           <Input type="text" name="name" />
           <ErrorMessageStyled name="name" component="div" />
