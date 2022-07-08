@@ -15,7 +15,6 @@ export const ContactItem = ({
             onDeleteContact(id);
           }}
         >
-          {' '}
           Delete
         </ContactItemButton>
       </ContactInfo>

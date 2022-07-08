@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { ContactsForm } from './Form';
+import { ContactsForm } from './ContactsForm';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
 import { Box } from './Box/Box.styled';
