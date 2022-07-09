@@ -37,7 +37,7 @@ export class ContactsForm extends Component {
   render() {
     return (
       <>
-        <FormStyled onSubmit={this.handleSubmit}>
+        <FormStyled autoComplete="off" onSubmit={this.handleSubmit}>
           <ContactsFormLabel htmlFor={this.nameId}>Name</ContactsFormLabel>
           <ContactsFormInput
             id={this.nameId}

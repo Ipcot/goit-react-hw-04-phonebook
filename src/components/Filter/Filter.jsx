@@ -9,6 +9,7 @@ export const Filter = ({ value, onChange }) => {
         Find contacts by name
       </Box>
       <Input
+        autoComplete="off"
         type="text"
         name="filter"
         value={value}

@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
 import { ContactItem } from 'components/ContactItem';
-import { WarningMessage } from './ContactList.styled';
+import { WarningMessage, ContactsListUL } from './ContactList.styled';
 
 export const ContactList = ({ filteredName, value, onDeleteContact }) => {
   return (
-    <ul>
+    <ContactsListUL>
       {filteredName.length === 0 && value && (
         <WarningMessage>No such contact Name</WarningMessage>
       )}
+      {filteredName.length === 0 && value === '' && (
+        <WarningMessage>Contacts list empty</WarningMessage>
+      )}
+
       {filteredName.length > 0 &&
         filteredName.map(item => {
           return (
@@ -18,7 +22,7 @@ export const ContactList = ({ filteredName, value, onDeleteContact }) => {
             />
           );
         })}
-    </ul>
+    </ContactsListUL>
   );
 };
 

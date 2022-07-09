@@ -4,13 +4,15 @@ import { Filter } from './Filter';
 import { ContactList } from './ContactList';
 import { Box } from './Box/Box.styled';
 
+const CONTACTS_LIST_KEY = 'contacts list';
+
 export class App extends Component {
   state = {
     contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+      // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      // { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      // { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
   };
@@ -38,6 +40,24 @@ export class App extends Component {
     this.setState(prev => ({
       contacts: prev.contacts.filter(item => item.id !== id),
     }));
+  };
+
+  componentDidMount = () => {
+    const parseContactsFromStorage = JSON.parse(
+      localStorage.getItem(CONTACTS_LIST_KEY)
+    );
+    if (parseContactsFromStorage) {
+      this.setState({ contacts: parseContactsFromStorage });
+    }
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem(
+        CONTACTS_LIST_KEY,
+        JSON.stringify(this.state.contacts)
+      );
+    }
   };
 
   render() {

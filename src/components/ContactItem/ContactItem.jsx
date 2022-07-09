@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { MdDelete } from 'react-icons/md';
 import { ContactInfo, ContactItemButton } from './ContactItem.styled';
 
 export const ContactItem = ({
@@ -15,6 +16,7 @@ export const ContactItem = ({
             onDeleteContact(id);
           }}
         >
+          <MdDelete />
           Delete
         </ContactItemButton>
       </ContactInfo>
