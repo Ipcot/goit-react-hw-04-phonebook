@@ -3,6 +3,7 @@ import { ContactsForm } from './ContactsForm';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
 import { Box } from './Box/Box.styled';
+import { nanoid } from 'nanoid';
 
 const CONTACTS_LIST_KEY = 'contacts list';
 
@@ -22,7 +23,7 @@ export class App extends Component {
       alert(`${data.name} is already in contacts`);
       return;
     }
-
+    data = {...data, id: nanoid(5)}
     this.setState(prev => {
       return { contacts: [...prev.contacts, data] };
     });

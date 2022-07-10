@@ -9,9 +9,12 @@ import {
 } from './ContactsForm.styled';
 
 export class ContactsForm extends Component {
+  static propTypes = {
+    onFormSubmit: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
-    id: nanoid(5),
     number: '',
   };
 
@@ -31,7 +34,7 @@ export class ContactsForm extends Component {
   };
 
   reset = () => {
-    this.setState({ name: '', id: nanoid(5), number: '' });
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -66,7 +69,3 @@ export class ContactsForm extends Component {
     );
   }
 }
-
-ContactsForm.propTypes = {
-  onFormSubmit: PropTypes.func.isRequired,
-};
