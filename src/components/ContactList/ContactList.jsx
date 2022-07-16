@@ -29,7 +29,7 @@ export const ContactList = ({ filteredName, value, onDeleteContact }) => {
 ContactList.propTypes = {
   filteredName: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     }).isRequired
