@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-03-phonebook",
+  "name": "goit-react-hw-04-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ipcot.github.io/goit-react-hw-03-phonebook/",
+  "homepage": "https://Ipcot.github.io/goit-react-hw-04-phonebook/",
   "dependencies": {
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.7",
